@@ -1,0 +1,88 @@
+{
+  "meta": { 
+    "version": 1, 
+    "updatedAt": "2026-02-28T00:00:00.000Z" 
+  },
+
+  "home": {
+    "name": "Bhupendra Verma",
+    "role": "Web Developer",
+    "heroText": "Crafting digital experiences that seamlessly blend artistry with cutting-edge tech.",
+    "ctaPrimaryText": "Hire Me",
+    "ctaPrimaryLink": "#/contact",
+    "ctaSecondaryText": "Projects",
+    "ctaSecondaryLink": "#/projects",
+    "heroImage": "",
+    "socials": [
+      { "label": "GitHub", "url": "https://github.com/" },
+      { "label": "LinkedIn", "url": "https://www.linkedin.com/" },
+      { "label": "Instagram", "url": "https://www.instagram.com/" },
+      { "label": "Twitter", "url": "https://x.com/" }
+    ]
+  },
+
+  "about": {
+    "paragraphs": [
+      "I'm a MERN-focused developer who enjoys crafting modern, responsive interfaces and shipping reliable features.",
+      "My priority is smooth UX, readable code, and performance."
+    ],
+    "highlights": [
+      "Pixel-perfect responsive UI (mobile-first)",
+      "Reusable components (clean architecture)",
+      "Smooth animations with Framer Motion",
+      "Basic SEO & performance optimizations"
+    ],
+    "education": [
+      { "id": "edu_1", "title": "BCA", "place": "RBS College, Agra", "year": "2025" }
+    ],
+    "experience": [
+      { "id": "exp_1", "title": "Fresher", "company": "-", "year": "2026" }
+    ],
+    "locationText": "Agra, Uttar Pradesh",
+    "profileImage": ""
+  },
+
+  "services": [
+    {
+      "id": "srv_1",
+      "title": "Web Design",
+      "desc": "Visually stunning layouts.",
+      "icon": "layers",
+      "order": 1,
+      "published": true,
+      "list": ["Figma Prototyping", "UI/UX Strategy", "Mobile-First Design"]
+    },
+    {
+      "id": "srv_2",
+      "title": "Development",
+      "desc": "Clean, efficient code.",
+      "icon": "code",
+      "order": 2,
+      "published": true,
+      "list": ["React / Next.js", "Tailwind CSS", "SEO Optimized Architecture"]
+    },
+    {
+      "id": "srv_3",
+      "title": "Backend API",
+      "desc": "Robust data handling.",
+      "icon": "palette",
+      "order": 3,
+      "published": true,
+      "list": ["Node.js / Express", "MongoDB Integration", "RESTful APIs"]
+    }
+  ],
+
+  "contact": {
+    "ctaTitle": "Got an idea?",
+    "ctaAccent": "Lets build it.",
+    "ctaDesc": "Whether it's a completely new project or you want to improve an existing one, I'm here to help.",
+    "ctaEmail": "Bhupendra8171121943@gmail.com"
+  },
+
+  "settings": {
+    "siteTitle": "Bhupendra Verma",
+    "siteDescription": "Portfolio",
+    "footerText": "© Bhupendra Verma",
+    "showSocials": true
+  }
+}

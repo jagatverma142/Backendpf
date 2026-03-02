@@ -1,0 +1,398 @@
+[
+  {
+    "id": 1,
+    "title": "Jagat-Education",
+    "category": "MERN Stack",
+    "status": "Live",
+    "img": "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=1200&auto=format&fit=crop",
+    "desc": "Dynamic educational website featuring a responsive Hero section, course listings, and interactive UI components.",
+    "tech": [
+      "React",
+      "Vite",
+      "Responsive UI",
+      "CSS",
+      "MongoDB"
+    ],
+    "links": {
+      "live": "https://jagatverma142.github.io/Jagateducation/",
+      "repo": "#"
+    }
+  },
+  {
+    "id": 2,
+    "title": "Jagat-Med Health Portal",
+    "category": "MERN Stack",
+    "status": "Live",
+    "img": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=1200&auto=format&fit=crop",
+    "desc": "Responsive medical website with dynamic routing and service listings deployed on GitHub Pages.",
+    "tech": [
+      "React",
+      "Vite",
+      "Tailwind",
+      "Gh-Pages",
+      "Responsive Design",
+      "MongoDB"
+    ],
+    "links": {
+      "live": "https://jagatverma142.github.io/jagat_med_web/",
+      "repo": "#"
+    }
+  },
+  {
+    "id": 3,
+    "title": "Awak_Agency",
+    "category": "MERN Stack",
+    "status": "Beta",
+    "img": "https://images.unsplash.com/photo-1501504905252-473c47e087f8?q=80&w=1200&auto=format&fit=crop",
+    "desc": "Modern digital agency portfolio featuring services from UI/UX to SEO with performance-first UI.",
+    "tech": [
+      "React",
+      "Vite",
+      "Tailwind",
+      "Gh-Pages",
+      "Responsive Design",
+      "MongoDB"
+    ],
+    "links": {
+      "live": "https://jagatverma142.github.io/Digital_Agency/",
+      "repo": "#"
+    }
+  },
+  {
+    "id": 4,
+    "title": "Personal Portfolio",
+    "category": "MERN Stack",
+    "status": "Live",
+    "img": "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=1200&auto=format&fit=crop",
+    "desc": "High-performance personal portfolio showcasing skills, projects, and contact info.",
+    "tech": [
+      "React",
+      "Vite",
+      "Framer Motion",
+      "SEO"
+    ],
+    "links": {
+      "live": "#",
+      "repo": "#"
+    }
+  },
+  {
+    "id": 5,
+    "title": "Artist Portfolio",
+    "category": "MERN Stack",
+    "status": "Live",
+    "img": "https://images.unsplash.com/photo-1513364776144-60967b0f800f?q=80&w=1200&auto=format&fit=crop",
+    "desc": "Visually-driven site featuring custom galleries and SEO-optimized content for artists.",
+    "tech": [
+      "React",
+      "CSS Grid",
+      "Lazy Load"
+    ],
+    "links": {
+      "live": "#",
+      "repo": "#"
+    }
+  },
+  {
+    "id": 6,
+    "title": "College Management System",
+    "category": "Django",
+    "status": "Live",
+    "img": "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=1200&auto=format&fit=crop",
+    "desc": "Comprehensive platform to manage student/faculty records and department schedules.",
+    "tech": [
+      "Django",
+      "MySQL",
+      "Python",
+      "HTML/CSS"
+    ],
+    "links": {
+      "live": "#",
+      "repo": "#"
+    }
+  },
+  {
+    "id": 7,
+    "title": "Hospital Patient Manager",
+    "category": "Django",
+    "status": "Live",
+    "img": "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=1200&auto=format&fit=crop",
+    "desc": "Secure web app for patient records and appointments with Role-Based Access Control.",
+    "tech": [
+      "Django",
+      "RBAC",
+      "Bootstrap",
+      "SQLite"
+    ],
+    "links": {
+      "live": "#",
+      "repo": "#"
+    }
+  },
+  {
+    "id": 8,
+    "title": "Insurance Claim Portal",
+    "category": "Django",
+    "status": "Done",
+    "img": "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&w=1200&auto=format&fit=crop",
+    "desc": "Secure portal for users to submit claims and agents to track statuses with high data integrity.",
+    "tech": [
+      "Django",
+      "Python",
+      "Secure Auth"
+    ],
+    "links": {
+      "live": "#",
+      "repo": "#"
+    }
+  },
+  {
+    "id": 9,
+    "title": "Food Ordering Site",
+    "category": "Django",
+    "status": "Beta",
+    "img": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?q=80&w=1200&auto=format&fit=crop",
+    "desc": "Dynamic e-commerce site featuring a real-time shopping cart and menu management APIs.",
+    "tech": [
+      "Django",
+      "REST API",
+      "JavaScript",
+      "AJAX"
+    ],
+    "links": {
+      "live": "#",
+      "repo": "#"
+    }
+  },
+  {
+    "id": 10,
+    "title": "Inventory Management",
+    "category": "Django",
+    "status": "Done",
+    "img": "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=1200&auto=format&fit=crop",
+    "desc": "Automated system to track stock levels, generate reports, and manage supplier data.",
+    "tech": [
+      "Django",
+      "MySQL",
+      "Chart.js"
+    ],
+    "links": {
+      "live": "#",
+      "repo": "#"
+    }
+  },
+  {
+    "id": 11,
+    "title": "Headless E-Commerce",
+    "category": "Client Work",
+    "status": "Live",
+    "img": "https://images.unsplash.com/photo-1557821552-17105176677c?q=80&w=1200&auto=format&fit=crop",
+    "desc": "Decoupled architecture style build (CMS + fast frontend).",
+    "tech": [
+      "Next.js",
+      "WPGraphQL",
+      "WooCommerce",
+      "Tailwind"
+    ],
+    "links": {
+      "live": "#",
+      "repo": "#"
+    }
+  },
+  {
+    "id": 12,
+    "title": "Custom Real Estate Portal",
+    "category": "Client Work",
+    "status": "Done",
+    "img": "https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1200&auto=format&fit=crop",
+    "desc": "Advanced property listing site with custom post types, filtering and map integration.",
+    "tech": [
+      "Custom Theme",
+      "ACF Pro",
+      "Google Maps API",
+      "PHP"
+    ],
+    "links": {
+      "live": "#",
+      "repo": "#"
+    }
+  },
+  {
+    "id": 13,
+    "title": "Live Hospital website",
+    "category": "Client Work",
+    "status": "Plugin",
+    "img": "https://images.unsplash.com/photo-1512678080530-7760d81faba6?q=80&w=1200&auto=format&fit=crop",
+    "desc": "Sarthak Hospital, Agra – trusted multi-speciality care with advanced facilities, expert doctors, and 24x7 emergency support.",
+    "tech": [
+      "PHP",
+      "Plugin Dev",
+      "AJAX",
+      "MySQL"
+    ],
+    "links": {
+      "live": "https://tajtriptour.in/index.php?lang=en",
+      "repo": "#"
+    }
+  },
+  {
+    "id": 14,
+    "title": "Point To Taxi",
+    "category": "Client Work",
+    "status": "Live",
+    "img": "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?q=80&w=1200&auto=format&fit=crop",
+    "desc": "Live taxi/business website.",
+    "tech": [
+      "Client Work",
+      "Live Website"
+    ],
+    "links": {
+      "live": "http://pointtotaxi.in/",
+      "repo": "#"
+    }
+  },
+  {
+    "id": 15,
+    "title": "The Dentist Studio",
+    "category": "Client Work",
+    "status": "Live",
+    "img": "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?q=80&w=1200&auto=format&fit=crop",
+    "desc": "Live dental clinic website.",
+    "tech": [
+      "Client Work",
+      "Live Website"
+    ],
+    "links": {
+      "live": "http://thedentiststudio.com/",
+      "repo": "#"
+    }
+  },
+  {
+    "id": 16,
+    "title": "AUGC",
+    "category": "Client Work",
+    "status": "Live",
+    "img": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1200&auto=format&fit=crop",
+    "desc": "Live organization website.",
+    "tech": [
+      "Client Work",
+      "Live Website"
+    ],
+    "links": {
+      "live": "http://augc.in/",
+      "repo": "#"
+    }
+  },
+  {
+    "id": 17,
+    "title": "AMDC Agra",
+    "category": "Client Work",
+    "status": "Live",
+    "img": "https://images.unsplash.com/photo-1551076805-e1869033e561?q=80&w=1200&auto=format&fit=crop",
+    "desc": "Live organization website.",
+    "tech": [
+      "Client Work",
+      "Live Website"
+    ],
+    "links": {
+      "live": "https://amdcagra.in/",
+      "repo": "#"
+    }
+  },
+  {
+    "id": 18,
+    "title": "Delhi Agra Jaipur Tour",
+    "category": "Client Work",
+    "status": "Live",
+    "img": "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1200&auto=format&fit=crop",
+    "desc": "Live tourism website.",
+    "tech": [
+      "Client Work",
+      "Live Website"
+    ],
+    "links": {
+      "live": "http://delhiagrajaipurtour.in/",
+      "repo": "#"
+    }
+  },
+  {
+    "id": 20,
+    "title": "Aravstar",
+    "category": "Client Work",
+    "status": "Live",
+    "img": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1200&auto=format&fit=crop",
+    "desc": "Live business website.",
+    "tech": [
+      "Client Work",
+      "Live Website"
+    ],
+    "links": {
+      "live": "https://aravstar.com/index.php",
+      "repo": "#"
+    }
+  },
+  {
+    "id": 21,
+    "title": "Taj Trip Tour (JD)",
+    "category": "Client Work",
+    "status": "Live",
+    "img": "https://images.unsplash.com/photo-1505839673365-e3971f8d9184?q=80&w=1200&auto=format&fit=crop",
+    "desc": "Live tourism website (JD section).",
+    "tech": [
+      "Client Work",
+      "Live Website"
+    ],
+    "links": {
+      "live": "https://tajtriptour.in/JD/index.php",
+      "repo": "#"
+    }
+  },
+  {
+    "id": 22,
+    "title": "Yadu Hospital (Services)",
+    "category": "Client Work",
+    "status": "Live",
+    "img": "https://images.unsplash.com/photo-1586773860418-d37222d8fce3?q=80&w=1200&auto=format&fit=crop",
+    "desc": "Live hospital services page.",
+    "tech": [
+      "Client Work",
+      "Live Website"
+    ],
+    "links": {
+      "live": "https://yaduhospital.com/service.html",
+      "repo": "#"
+    }
+  },
+  {
+    "id": 23,
+    "title": "Crown Plus",
+    "category": "Client Work",
+    "status": "Live",
+    "img": "https://images.unsplash.com/photo-1545239351-1141bd82e8a6?q=80&w=1200&auto=format&fit=crop",
+    "desc": "Live business website.",
+    "tech": [
+      "Client Work",
+      "Live Website"
+    ],
+    "links": {
+      "live": "http://crownplus.in/",
+      "repo": "#"
+    }
+  },
+  {
+    "id": 24,
+    "title": "Chandra Metal",
+    "category": "Client Work",
+    "status": "Live",
+    "img": "https://images.unsplash.com/photo-1581091215367-59ab6b56f1b4?q=80&w=1200&auto=format&fit=crop",
+    "desc": "Live company website.",
+    "tech": [
+      "Client Work",
+      "Live Website"
+    ],
+    "links": {
+      "live": "https://www.chandrametal.com/",
+      "repo": "#"
+    }
+  }
+]
