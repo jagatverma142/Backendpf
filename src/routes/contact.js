@@ -8,10 +8,10 @@ const { sendContactEmail } = require("../lib/mailer");
 
 const router = express.Router();
 
-// 🔹 messages.json path
+// ✅ messages.json path
 const messagesPath = path.join(__dirname, "..", "..", "data", "messages.json");
 
-// 🔹 Optional: anonymize IP
+// ✅ Optional: anonymize IP
 function anonymizeIp(ip) {
   const salt = process.env.LOG_SALT || process.env.JWT_SECRET || "default_salt";
   return crypto.createHash("sha256").update(String(ip) + salt).digest("hex");
@@ -28,6 +28,12 @@ const contactLimiter = rateLimit({
   }
 });
 
+// ✅ Add this GET route so browser test works:
+// https://backendpf-xvn8.onrender.com/api/contact
+router.get("/", (req, res) => {
+  res.json({ ok: true, message: "Contact API is running. Use POST /api/contact" });
+});
+
 router.post("/", contactLimiter, async (req, res, next) => {
   try {
     const name = sanitizeText(req.body?.name);
@@ -40,7 +46,7 @@ router.post("/", contactLimiter, async (req, res, next) => {
     const timeline = sanitizeText(req.body?.timeline);
     const consent = req.body?.consent;
 
-    // 🔹 Validations
+    // ✅ Validations
     if (!name)
       return res.status(400).json({
         ok: false,
@@ -70,7 +76,7 @@ router.post("/", contactLimiter, async (req, res, next) => {
       });
     }
 
-    // 🔹 Send email
+    // ✅ Send email
     await sendContactEmail({
       name,
       email,
@@ -82,9 +88,9 @@ router.post("/", contactLimiter, async (req, res, next) => {
       timeline
     });
 
-    // 🔹 Log message
-    const ip =
-      req.headers["x-forwarded-for"]?.split(",")[0]?.trim() || req.ip || "";
+    // ✅ Log message
+    const ip = req.headers["x-forwarded-for"]?.split(",")[0]?.trim() || req.ip || "";
+
     const entry = {
       id: "msg_" + crypto.randomBytes(8).toString("hex"),
       timestamp: new Date().toISOString(),

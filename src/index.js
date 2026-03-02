@@ -12,12 +12,12 @@ const { errorHandler } = require("./middleware/errorHandler");
 const healthRoutes = require("./routes/health");
 const contactRoutes = require("./routes/contact");
 const projectsRoutes = require("./routes/projects");
-const adminRoutes = require("./routes/admin");          // /login
+const adminRoutes = require("./routes/admin"); // /login (if used)
 const adminDataRoutes = require("./routes/adminData"); // /messages, /events
 const resumeRoutes = require("./routes/resume");
 const contentRoutes = require("./routes/content");
 const adminContentRoutes = require("./routes/adminContent");
-const adminAuthRoutes = require("./routes/adminAuth");
+const adminAuthRoutes = require("./routes/adminAuth"); // /login (if used)
 
 const app = express();
 app.set("trust proxy", 1);
@@ -51,22 +51,25 @@ app.use(
 
 // ✅ Routes mount section
 app.use("/api/health", healthRoutes);
-app.use("/api/contact", contactRoutes);   // 🔹 Contact route
+app.use("/api/contact", contactRoutes);
 app.use("/api/projects", projectsRoutes);
-app.use("/api/admin", adminRoutes);       // /login
-app.use("/api/admin", adminDataRoutes);   // /messages, /events
 app.use("/api/resume", resumeRoutes);
 app.use("/api/content", contentRoutes);
-app.use("/api/admin", adminContentRoutes); // /content
-app.use("/api/admin", adminAuthRoutes);    // /login
 
-// ✅ Production: serve frontend build
+// ✅ Admin routes (IMPORTANT: avoid duplicate /login routes)
+// Use ONE login route: prefer adminAuthRoutes for /api/admin/login
+app.use("/api/admin", adminDataRoutes);
+app.use("/api/admin", adminContentRoutes);
+app.use("/api/admin", adminAuthRoutes);
+
+// ❗ If you still use old adminRoutes (also provides /login), keep it OFF to avoid confusion
+// app.use("/api/admin", adminRoutes);
+
+// ✅ Production: serve frontend build (optional; Render usually backend-only)
 if (process.env.NODE_ENV === "production") {
   const clientDist = path.join(__dirname, "..", "..", "Frontend", "dist");
   app.use(express.static(clientDist));
-  app.get("*", (req, res) =>
-    res.sendFile(path.join(clientDist, "index.html"))
-  );
+  app.get("*", (req, res) => res.sendFile(path.join(clientDist, "index.html")));
 }
 
 // ✅ Error handlers
@@ -74,6 +77,4 @@ app.use(notFound);
 app.use(errorHandler);
 
 const port = process.env.PORT || 5000;
-app.listen(port, () =>
-  console.log(`Backend running: http://localhost:${port}`)
-);
+app.listen(port, () => console.log(`Backend running: http://localhost:${port}`));
