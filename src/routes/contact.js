@@ -1,8 +1,9 @@
 const path = require("path");
 const crypto = require("crypto");
-const { readJson, writeJsonAtomic } = require("../lib/jsonStore");
 const express = require("express");
 const rateLimit = require("express-rate-limit");
+
+const { readJson, writeJsonAtomic } = require("../lib/jsonStore");
 const { sanitizeText, isValidEmail } = require("../lib/sanitize");
 const { sendContactEmail } = require("../lib/mailer");
 
@@ -17,10 +18,11 @@ function anonymizeIp(ip) {
   return crypto.createHash("sha256").update(String(ip) + salt).digest("hex");
 }
 
+// ✅ Per-route rate limit (Contact form)
 const contactLimiter = rateLimit({
   windowMs: 10 * 60 * 1000,
   limit: 5,
-  standardHeaders: "draft-7",
+  standardHeaders: "draft-7", // valid drafts include 6/7/8
   legacyHeaders: false,
   message: {
     ok: false,
@@ -28,36 +30,40 @@ const contactLimiter = rateLimit({
   }
 });
 
-// ✅ Add this GET route so browser test works:
-// https://backendpf-xvn8.onrender.com/api/contact
-router.get("/", (req, res) => {
+// ✅ GET health for browser test (also rate-limited)
+router.get("/", contactLimiter, (req, res) => {
   res.json({ ok: true, message: "Contact API is running. Use POST /api/contact" });
 });
 
 router.post("/", contactLimiter, async (req, res, next) => {
   try {
-    const name = sanitizeText(req.body?.name);
-    const email = sanitizeText(req.body?.email);
-    const phone = sanitizeText(req.body?.phone);
-    const subject = sanitizeText(req.body?.subject);
-    const message = sanitizeText(req.body?.message);
-    const service = sanitizeText(req.body?.service);
-    const budget = sanitizeText(req.body?.budget);
-    const timeline = sanitizeText(req.body?.timeline);
-    const consent = req.body?.consent;
+    // ✅ Basic body guard (avoid non-JSON or empty body issues)
+    const body = req.body && typeof req.body === "object" ? req.body : {};
+
+    const name = sanitizeText(body.name);
+    const email = sanitizeText(body.email);
+    const phone = sanitizeText(body.phone);
+    const subject = sanitizeText(body.subject);
+    const message = sanitizeText(body.message);
+    const service = sanitizeText(body.service);
+    const budget = sanitizeText(body.budget);
+    const timeline = sanitizeText(body.timeline);
+    const consent = body.consent;
 
     // ✅ Validations
-    if (!name)
+    if (!name) {
       return res.status(400).json({
         ok: false,
         error: { code: "VALIDATION", message: "Name is required" }
       });
+    }
 
-    if (!email || !isValidEmail(email))
+    if (!email || !isValidEmail(email)) {
       return res.status(400).json({
         ok: false,
         error: { code: "VALIDATION", message: "Valid email is required" }
       });
+    }
 
     if (!message || message.length < 10 || message.length > 2000) {
       return res.status(400).json({
@@ -76,21 +82,11 @@ router.post("/", contactLimiter, async (req, res, next) => {
       });
     }
 
-    // ✅ Send email
-    await sendContactEmail({
-      name,
-      email,
-      phone,
-      subject,
-      message,
-      service,
-      budget,
-      timeline
-    });
+    // ✅ Client IP (trust proxy enabled in index.js, so req.ip is ok behind Render)
+    const ip =
+      req.headers["x-forwarded-for"]?.split(",")[0]?.trim() || req.ip || "";
 
-    // ✅ Log message
-    const ip = req.headers["x-forwarded-for"]?.split(",")[0]?.trim() || req.ip || "";
-
+    // ✅ Save entry first (so even if email fails, message is not lost)
     const entry = {
       id: "msg_" + crypto.randomBytes(8).toString("hex"),
       timestamp: new Date().toISOString(),
@@ -110,7 +106,33 @@ router.post("/", contactLimiter, async (req, res, next) => {
     messages.push(entry);
     await writeJsonAtomic(messagesPath, messages);
 
-    res.json({ ok: true, message: "Message sent successfully", saved: entry });
+    // ✅ Try sending email (do not fail the whole request if email is down)
+    try {
+      await sendContactEmail({
+        name,
+        email,
+        phone,
+        subject,
+        message,
+        service,
+        budget,
+        timeline
+      });
+    } catch (mailErr) {
+      // If you want: log mailErr in server logs
+      return res.status(202).json({
+        ok: true,
+        message: "Saved, but email sending failed",
+        saved: { id: entry.id, timestamp: entry.timestamp }
+      });
+    }
+
+    // ✅ Do not return full entry (PII / ipHash)
+    return res.json({
+      ok: true,
+      message: "Message sent successfully",
+      saved: { id: entry.id, timestamp: entry.timestamp }
+    });
   } catch (err) {
     next(err);
   }
